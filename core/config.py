@@ -1,4 +1,4 @@
-DEBUG = True
+DEBUG = False
 SECRET_KEY = 'HayahSoft'
 DIR_URL_RULES = 'url_rules'
 # SQLALCHEMY_DATABASE_URI = 'sqlite:///database/database.db'
