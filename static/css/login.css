@@ -1,0 +1,35 @@
+@font-face {
+    font-family: Primary;
+    src: url('../fonts/Raleway-Medium.ttf');
+}
+
+@font-face {
+    font-family: PrimaryBold;
+    src: url('../fonts/Raleway-SemiBold.ttf');
+}
+
+body {
+    background-color: #2d4430;
+    font-size: 16px;
+    font-family: Primary;
+    background-image: url(/static/img/pattern.png);
+}
+
+h1 {
+    font-family: PrimaryBold;
+    font-size: 33px;
+    text-align: center;
+    margin-top: 100px;
+    color: whitesmoke;
+    text-shadow: 0 2px 2px gray;
+}
+
+div#login-box {
+    margin-top: 20px;
+    padding: 20px 30px;
+}
+
+label small {
+    font-size: 70%;
+    color: gray;
+}

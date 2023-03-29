@@ -1,0 +1,125 @@
+page:not(.active) {
+  display: none;
+}
+
+page section:not(.active) {
+  display: none;
+}
+
+.navbar {
+  user-select: none;
+}
+
+.navbar i#help {
+  line-height: 50px;
+  float: right;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.sidebar {
+  user-select: none;
+}
+
+.sidebar li.disabled {
+  background-color: #495049;
+}
+
+.sidebar li.disabled:hover {
+  background-color: #495049;
+}
+
+.sidebar li.disabled a {
+  color: gray;
+  cursor: not-allowed;
+}
+
+page .page-header {
+  margin-top: 20px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-bottom: 10px;
+}
+
+page .page-header h1 {
+  margin: 0;
+  display: inline-block;
+}
+
+page .page-header ul {
+  margin: 15px;
+  float: right;
+  margin-bottom: 0;
+  padding-left: 0;
+  padding: 10px;
+}
+
+page .page-header ul li {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 12px;
+  margin-left: 3px;
+}
+
+.feedback {
+  font-size: 22px;
+  margin-left: 10px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.feedback .success {
+  color: #6cbe45;
+}
+
+.feedback .warning {
+  color: orange;
+}
+
+.feedback .error {
+  color: red;
+}
+
+select {
+  height: 30px;
+  width: 100%;
+  border: 1px solid #ccc;
+  padding-left: 4px;
+}
+
+
+
+page section toolbar .right,
+page section toolbar .left {
+  display: inline-block;
+}
+
+page section toolbar .right {
+  float: right;
+}
+
+page section#sheet toolbar label {
+  margin-right: 4px;
+}
+
+page section#sheet toolbar select {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+page section#sheet toolbar select#sheet-day {
+  width: 165px;
+}
+
+page section#sheet toolbar select#sheet-max {
+  width: 80px;
+}
+
+page section#sheet table {
+  margin-top: 15px;
+}
+
+page section#sheet table thead {
+  background-color: #a81616;
+  color: white;
+}

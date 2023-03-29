@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="theme-color" content="#3d5f41">
+   <title>Blood internal Software</title>
+   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+   <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+   <link rel="stylesheet" href="/static/css/style.css">
+   <link rel="stylesheet" href="/static/css/app.css">
+</head>
+
+<body>
+   <header>
+      <div class="navbar" role="navigation">
+        
+         <div class="container-fluid" style="display: inline-flex;">
+            <span class="logo">Blood Software</span>
+         </div>
+         <div class="loading">
+            <svg width="64px" height="48px">
+               <polyline points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24" id="back"></polyline>
+               <polyline points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24" id="front"></polyline>
+            </svg>
+         </div>
+      </div>
+   </header>
+
+   <section>
+      <div class="main">
+         {% for message in get_flashed_messages(category_filter=['error']) %}
+         <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i
+                     class="fa fa-close"></i></span></button>
+            {{message}}
+         </div>
+         {% endfor %}
+         {% for message in get_flashed_messages(category_filter=['warning']) %}
+         <div class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><i
+                  class="fa fa-close"></i></button>
+            {{message}}
+         </div>
+         {% endfor %}
+         {% for message in get_flashed_messages(category_filter=['info']) %}
+         <div class="alert alert-info alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i
+                     class="fa fa-close"></i></span></button>
+            {{message}}
+         </div>
+         {% endfor %}
+         {% for message in get_flashed_messages(category_filter=['success']) %}
+         <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i
+                     class="fa fa-close"></i></span></button>
+            {{message}}
+         </div>
+         {% endfor %}
+         <page id="blood" class="active">
+            {% include 'blood.html' %}
+         </page>
+      </div>
+   </section>
+
+   <script src="/static/js/jquery-3.1.1.min.js"></script>
+   <script src="/static/js/bootstrap.min.js"></script>
+   <script src="/static/js/suggest.js"></script>
+   <script src="/static/js/app.js"></script>
+   {% block afterload %}{% endblock %}
+</body>
+
+</html>

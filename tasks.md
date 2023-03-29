@@ -1,0 +1,11 @@
+# Tasks of blood internal software
+- [x] tab(in) checkbox for every test
+- [x] tab(out) side filter to filter between tests 
+- [x] tab(out) list updated for every filter to show who is waiting and who is done and got results 
+- [x] tab(out) define the adding criteria 
+- [x] tab(out) ability to add data in the last mentioned view 
+- [x] tab(centrifuge) change the number of tubes and add to database
+- [] tab(centrifuge) list for the centrifuge and a button to spicfy if the tubes are centered  
+- [x] tab(Sheet) add out col which indecates if all results done  
+- [x] tab(Sheet) add tests a field that shows all tests  
+- [x] overall  -> mobile view

@@ -1,0 +1,544 @@
+<div class="page-header">
+  <h1><span>Entry</span></h1>
+  <ul>
+    <li class="btn btn-default active" data-target-section="in">Entry</li>
+    <li class="btn btn-default" data-target-section="centrifuge">Centrifuge</li>
+    <li class="btn btn-default" data-target-section="out">Test</li>
+    <li class="btn btn-default" data-target-section="kick">Kick</li>
+    <li class="btn btn-default" data-target-section="sheet">Sheet</li>
+  </ul>
+</div>
+
+<section id="in" class="active">
+  <form class="form-horizontal" class="col-sm-5" action="/blood/in" method="POST">
+    <div class="form-group">
+      <label for="bl_in_code" class="col-sm-1 control-label"><label for="bl_in_code">Sheet code</label></label>
+      <div class="col-sm-3"><input class="form-control input" id="bl_in_code" name="sheet_code" type="text" value=""
+          autocomplete="off" required></div>
+    </div>
+    <div class="form-group">
+      <label for="bl_in_labcode" class="col-sm-1 control-label"><label for="bl_in_labcode">Lab code</label></label>
+      <div class="col-sm-3"><input class="form-control input" id="bl_in_labcode" name="lab_code" type="text" value=""
+          autocomplete="off" required></div>
+    </div>
+    <span class="feedback"></span>
+    <table style="align-items: center;" class="table table-striped">
+      <tbody style="margin: auto;">
+        <tr>
+          <td><label for="Hepatitis" class="col-sm-1 control-label"><label for="Hepatitis">Hepatitis</label></label>
+          </td>
+
+          <td>
+            <div class="checkbox-wrapper-31">
+              <input type="checkbox" id="Hepatitis" name="Hepatitis">
+              <svg viewBox="0 0 35.6 35.6">
+                <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+              </svg>
+            </div>
+          </td>
+          <td><label for="CBC" class="col-sm-1 control-label"><label for="CBC">CBC</label></label></td>
+          <td>
+            <div class="checkbox-wrapper-31">
+              <input id="CBC" name="CBC" type="checkbox">
+              <svg viewBox="0 0 35.6 35.6">
+                <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+              </svg>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="Albumin" class="col-sm-1 control-label"><label for="Albumin">Albumin</label></label></td>
+          <td>
+            <div class="checkbox-wrapper-31">
+              <input id="Albumin" name="Albumin" type="checkbox">
+              <svg viewBox="0 0 35.6 35.6">
+                <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+              </svg>
+            </div>
+          </td>
+          <td><label for="GPT" class="col-sm-1 control-label"><label for="GPT">GPT</label></label></td>
+          <td>
+            <div class="checkbox-wrapper-31">
+              <input id="GPT" name="GPT" type="checkbox">
+              <svg viewBox="0 0 35.6 35.6">
+                <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+              </svg>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="PT" class="col-sm-1 control-label"><label for="PT">PT</label></label></td>
+          <td>
+            <div class="checkbox-wrapper-31">
+              <input id="PT" name="PT" type="checkbox">
+              <svg viewBox="0 0 35.6 35.6">
+                <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+              </svg>
+            </div>
+          </td>
+          <td><label for="Bilirubin_direct" class="col-sm-1 control-label"><label for="Bilirubin_direct">Bilirubin
+                direct</label></label></td>
+          <td>
+            <div class="checkbox-wrapper-31">
+              <input id="Bilirubin_direct" name="Bilirubin_direct" type="checkbox">
+              <svg viewBox="0 0 35.6 35.6">
+                <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+              </svg>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="Bilirubin_total" class="col-sm-1 control-label"><label for="Bilirubin_total">Bilirubin
+                total</label></label></td>
+          <td>
+            <div class="checkbox-wrapper-31">
+              <input id="Bilirubin_total" name="Bilirubin_total" type="checkbox">
+              <svg viewBox="0 0 35.6 35.6">
+                <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+              </svg>
+            </div>
+          </td>
+          <td><label for="Creatinine" class="col-sm-1 control-label"><label for="Creatinine">Creatinine</label></label>
+          </td>
+          <td>
+            <div class="checkbox-wrapper-31">
+              <input id="Creatinine" name="Creatinine" type="checkbox">
+              <svg viewBox="0 0 35.6 35.6">
+                <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+              </svg>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="Urea" class="col-sm-1 control-label"><label for="urea">Urea</label></label></td>
+          <td>
+            <div class="checkbox-wrapper-31">
+              <input id="Urea" name="Urea" type="checkbox">
+              <svg viewBox="0 0 35.6 35.6">
+                <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+              </svg>
+            </div>
+          </td>
+          <td><label for="Uric" class="col-sm-1 control-label"><label for="Uric">Uric acid</label></label></td>
+          <td>
+            <div class="checkbox-wrapper-31">
+              <input id="Uric" name="Uric" type="checkbox">
+              <svg viewBox="0 0 35.6 35.6">
+                <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+              </svg>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="glucose" class="col-sm-1 control-label"><label for="glucose">Glucose</label></label></td>
+          <td>
+            <div class="checkbox-wrapper-31">
+              <input id="glucose" name="glucose" type="checkbox">
+              <svg viewBox="0 0 35.6 35.6">
+                <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+              </svg>
+            </div>
+          </td>
+          <td><label for="ESR" class="col-sm-1 control-label"><label for="ESR">ESR</label></label></td>
+          <td>
+            <div class="checkbox-wrapper-31">
+              <input id="ESR" name="ESR" type="checkbox">
+              <svg viewBox="0 0 35.6 35.6">
+                <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+              </svg>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="TAG" class="col-sm-1 control-label"><label for="TAG">TAG</label></label></td>
+          <td>
+            <div class="checkbox-wrapper-31">
+              <input id="TAG" name="TAG" type="checkbox">
+              <svg viewBox="0 0 35.6 35.6">
+                <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+              </svg>
+            </div>
+          </td>
+          <td><label for="HBA1C" class="col-sm-1 control-label"><label for="HBA1C">HBA1C</label></label></td>
+          <td>
+            <div class="checkbox-wrapper-31">
+              <input id="HBA1C" name="HBA1C" type="checkbox">
+              <svg viewBox="0 0 35.6 35.6">
+                <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+              </svg>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="Total_cholesterol" class="col-sm-1 control-label"><label
+                for="Total_cholesterol">Total<br>cholesterol</label></label></td>
+          <td>
+            <div class="checkbox-wrapper-31">
+              <input id="Total_cholesterol" name="Total_cholesterol" type="checkbox">
+              <svg viewBox="0 0 35.6 35.6">
+                <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+              </svg>
+            </div>
+          </td>
+          <td><label for="Hpp" class="col-sm-1 control-label"><label for="Hpp">2Hpp</label></label></td>
+          <td>
+            <div class="checkbox-wrapper-31">
+              <input id="Hpp" name="Hpp" type="checkbox">
+              <svg viewBox="0 0 35.6 35.6">
+                <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+              </svg>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="ASOT" class="col-sm-1 control-label"><label for="ASOT">ASOT</label></label></td>
+          <td>
+            <div class="checkbox-wrapper-31">
+              <input id="ASOT" name="ASOT" type="checkbox">
+              <svg viewBox="0 0 35.6 35.6">
+                <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+              </svg>
+            </div>
+          </td>
+          <td><label for="CRP" class="col-sm-1 control-label"><label for="CRP">CRP</label></label></td>
+          <td>
+            <div class="checkbox-wrapper-31">
+              <input id="CRP" name="CRP" type="checkbox">
+              <svg viewBox="0 0 35.6 35.6">
+                <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+              </svg>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="LDL" class="col-sm-1 control-label"><label for="LDL">LDL</label></label></td>
+          <td>
+            <div class="checkbox-wrapper-31">
+              <input id="LDL" name="LDL" type="checkbox">
+              <svg viewBox="0 0 35.6 35.6">
+                <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+              </svg>
+            </div>
+          </td>
+          <td><label for="HDL" class="col-sm-1 control-label"><label for="HDL">HDL</label></label></td>
+          <td>
+            <div class="checkbox-wrapper-31">
+              <input id="HDL" name="HDL" type="checkbox">
+              <svg viewBox="0 0 35.6 35.6">
+                <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+              </svg>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="col-sm-offset-1"><button type="submit">Submit</button></div>
+  </form>
+</section>
+
+<section id="centrifuge">
+  <table class="table_padding  table-striped">
+    <tbody>
+      <tr>
+        <td>
+          <h3>a1</h3>
+        </td>
+        <td class="no_border">
+          <button class="minus" style="font-size:30px;" type="button" onclick="decrement()">-</button>
+        </td>
+        <td class="no_border">
+          <input style="display: inline;" class="form-control input" id="bl_tubes" name="tubes" type="number"
+            autocomplete="off" required min="0">
+        </td>
+        <td class="no_border">
+          <button class="plus" style="font-size:30px;" type="button" onclick="increment()">+</button>
+        </td>
+        <td>
+          <div class="checkbox-wrapper-31">
+            <input id="CRP" name="CRP" type="checkbox">
+            <svg viewBox="0 0 35.6 35.6">
+              <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+              <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+              <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+            </svg>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h3>a2</h3>
+        </td>
+        <td class="no_border">
+          <button class="minus" style="font-size:30px;" type="button" onclick="decrement()">-</button>
+        </td>
+        <td class="no_border">
+          <input style="display: inline;" class="form-control input" id="bl_tubes" name="tubes" type="number"
+            autocomplete="off" required min="0">
+        </td>
+        <td class="no_border">
+          <button class="plus" style="font-size:30px;" type="button" onclick="increment()">+</button>
+        </td>
+        <td>
+          <div class="checkbox-wrapper-31">
+            <input id="change" name="change" type="checkbox">
+            <svg viewBox="0 0 35.6 35.6">
+              <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+              <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+              <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+            </svg>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h3>a3</h3>
+        </td>
+        <td class="no_border">
+          <button class="minus" style="font-size:30px;" type="button" onclick="decrement()">-</button>
+        </td>
+        <td class="no_border">
+          <input style="display: inline;" class="form-control input" id="bl_tubes" name="tubes" type="number"
+            autocomplete="off" required min="0">
+        </td>
+        <td class="no_border">
+          <button class="plus" style="font-size:30px;" type="button" onclick="increment()">+</button>
+        </td>
+        <td>
+          <div class="checkbox-wrapper-31">
+            <input id="CRP" name="CRP" type="checkbox">
+            <svg viewBox="0 0 35.6 35.6">
+              <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+              <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+              <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+            </svg>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h3>a4</h3>
+        </td>
+        <td class="no_border">
+          <button class="minus" style="font-size:30px;" type="button" onclick="decrement()">-</button>
+        </td>
+        <td class="no_border">
+          <input style="display: inline;" class="form-control input" id="bl_tubes" name="tubes" type="number"
+            autocomplete="off" required min="0">
+        </td>
+        <td class="no_border">
+          <button class="plus" style="font-size:30px;" type="button" onclick="increment()">+</button>
+        </td>
+        <td>
+          <div class="checkbox-wrapper-31">
+            <input id="CRP" name="CRP" type="checkbox">
+            <svg viewBox="0 0 35.6 35.6">
+              <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+              <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+              <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+            </svg>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h3>a5</h3>
+        </td>
+        <td class="no_border">
+          <button class="minus" style="font-size:30px;" type="button" onclick="decrement()">-</button>
+        </td>
+        <td class="no_border">
+          <input style="display: inline;" class="form-control input" id="bl_tubes" name="tubes" type="number"
+            autocomplete="off" required min="0">
+        </td>
+        <td class="no_border">
+          <button class="plus" style="font-size:30px;" type="button" onclick="increment()">+</button>
+        </td>
+        <td>
+          <div class="checkbox-wrapper-31">
+            <input id="CRP" name="CRP" type="checkbox">
+            <svg viewBox="0 0 35.6 35.6">
+              <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+              <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+              <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+            </svg>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h3>a6</h3>
+        </td>
+        <td class="no_border">
+          <button class="minus" style="font-size:30px;" type="button" onclick="decrement()">-</button>
+        </td>
+        <td class="no_border">
+          <input style="display: inline;" class="form-control input" id="bl_tubes" name="tubes" type="number"
+            autocomplete="off" required min="0">
+        </td>
+        <td class="no_border">
+          <button class="plus" style="font-size:30px;" type="button" onclick="increment()">+</button>
+        </td>
+        <td>
+          <div class="checkbox-wrapper-31">
+            <input id="CRP" name="CRP" type="checkbox">
+            <svg viewBox="0 0 35.6 35.6">
+              <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+              <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+              <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+            </svg>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h3>a7</h3>
+        </td>
+        <td class="no_border">
+          <button class="minus" style="font-size:30px;" type="button" onclick="decrement()">-</button>
+        </td>
+        <td class="no_border">
+          <input style="display: inline;" class="form-control input" id="bl_tubes" name="tubes" type="number"
+            autocomplete="off" required min="0">
+        </td>
+        <td class="no_border">
+          <button class="plus" style="font-size:30px;" type="button" onclick="increment()">+</button>
+        </td>
+        <td>
+          <div class="checkbox-wrapper-31">
+            <input id="CRP" name="CRP" type="checkbox">
+            <svg viewBox="0 0 35.6 35.6">
+              <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+              <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+              <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+            </svg>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="out">
+  <table class="table table-striped" style="width: 100%; float: left; padding: 0%; margin: auto; float: initial;">
+    <tbody style="margin: auto;">
+      <tr>
+        <td><button name="Hepatitis" class="" type="submit" value="Hepatitis"
+            onclick="filter('Hepatitis')">Hepatitis</button></td>
+        <td><button name="CBC" class="" type="submit" value="CBC" onclick="filter('CBC')">CBC</button></td>
+        <td><button name="Albumin" class="" type="submit" value="Albumin" onclick="filter('Albumin')">Albumin</button>
+        </td>
+        <td><button name="GPT" class="" type="submit" value="GPT" onclick="filter('GPT')">GPT</button></td>
+      </tr>
+      <tr>
+        <td><button name="PT" class="" type="submit" value="PT" onclick="filter('PT')">PT</button></td>
+        <td><button name="Bilirubin_direct" class="" type="submit" value="Bilirubin_direct"
+            onclick="filter('Bilirubin_direct')">Bilirubin direct</button></td>
+        <td><button name="Bilirubin_total" class="" type="submit" value="Bilirubin_total"
+            onclick="filter('Bilirubin_total')">Bilirubin total</button></td>
+        <td><button name="Creatinine" class="" type="submit" value="Creatinine"
+            onclick="filter('Creatinine')">Creatinine</button></td>
+      </tr>
+      <tr>
+        <td><button name="Urea" class="" type="submit" value="Urea" onclick="filter('Urea')">Urea</button></td>
+        <td><button name="Uric" class="" type="submit" value="Uric" onclick="filter('Uric')">Uric acid</button></td>
+        <td><button name="Glucose" class="" type="submit" value="Glucose" onclick="filter('Glucose')">Glucose</button>
+        </td>
+        <td><button name="ESR" class="" type="submit" value="ESR" onclick="filter('ESR')">ESR</button></td>
+      </tr>
+      <tr>
+        <td><button name="TAG" class="" type="submit" value="TAG" onclick="filter('TAG')">TAG</button></td>
+        <td><button name="HBA1C" class="" type="submit" value="HBA1C" onclick="filter('HBA1C')">HBA1C</button></td>
+        <td><button name="Total_cholesterol" class="" type="submit" value="Total_cholesterol"
+            onclick="filter('Total_cholesterol')">Total<br>cholesterol</button></td>
+        <td><button name="Hpp" class="" type="submit" value="Hpp" onclick="filter('Hpp')">2Hpp</button></td>
+      </tr>
+      <tr>
+        <td><button name="ASOT" class="" type="submit" value="ASOT" onclick="filter('ASOT')">ASOT</button></td>
+        <td><button name="CRP" class="" type="submit" value="CRP" onclick="filter('CRP')">CRP</button></td>
+        <td><button name="LDL" class="" type="submit" value="LDL" onclick="filter('LDL')">LDL</button></td>
+        <td><button name="HDL" class="" type="submit" value="HDL" onclick="filter('HDL')">HDL</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <div class="col-sm-offset-1"><span class="feedback"></span></div>
+  <table class="table table-striped" id="data">
+    <tbody style="margin: auto;">
+    </tbody>
+  </table>
+</section>
+
+<section id="kick">
+  <form class="form-horizontal" class="col-sm-5" action="/blood/kick" method="POST">
+    <div class="form-group">
+      <label for="blood_kick_code" class="col-sm-1 control-label"><label for="blood_kick_code">Sheet
+          Code</label></label>
+      <div class="col-sm-3"><input class="form-control input" id="blood_kick_code" name="sheet_code" type="text"
+          value="" autocomplete="off"></div>
+    </div>
+    <div class="form-group">
+      <label for="blood_kick_labcode" class="col-sm-1 control-label"><label for="blood_kick_labcode">Lab
+          Code</label></label>
+      <div class="col-sm-3"><input class="form-control input" id="blood_kick_labcode" name="lab_code" type="text"
+          value="" autocomplete="off"></div>
+    </div>
+    <div class="col-sm-offset-1"><button type="submit">Submit</button><span class="feedback"></span></div>
+  </form>
+</section>
+
+<section id="sheet" onload="refreshBloodSheet();">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <td>#</td>
+        <td>code</td>
+        <td>In</td>
+        <td>Out</td>
+        <td>tubes</td>
+        <td>required tests</td>
+        <td>Results</td>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</section>

@@ -1,0 +1,79 @@
+page
+   &:not(.active)
+      display: none
+   section
+      &:not(.active)
+         display: none
+         
+.navbar
+   user-select: none
+   i#help
+      line-height: 50px
+      float: right
+      font-size: 25px
+      cursor: pointer
+
+.sidebar
+   user-select: none
+   li
+      &.disabled
+         background-color: #495049
+         &:hover
+            background-color: #495049
+         a
+            color: gray
+            cursor: not-allowed
+            
+page
+   .page-header
+      margin-top: 20px
+      margin-left: -5px
+      margin-right: -5px
+      padding-bottom: 10px
+      h1
+         margin: 0
+         display: inline
+      ul
+         float: right
+         margin-bottom: 0
+         padding-left: 0
+         padding-top: 10px
+         li
+            display: inline
+            cursor: pointer
+            font-size: 16px
+            
+.feedback
+   font-size: 15px
+   margin-left: 10px
+   .success
+      color: green
+   .warning
+      color: orange
+   .error
+      color: red
+            
+#pharmacy
+   #patients
+      textarea
+         resize: vertical
+      table
+         tbody
+            td
+               padding: 0
+               input
+                  height: 30px
+                  width: 100%
+                  border: 1px solid #ccc
+                  padding-left: 4px
+               
+#incident-report
+   textarea
+      resize: vertical
+      direction: rtl
+   input
+      direction: rtl
+   label
+      display: inherit
+      direction: rtl
+      text-align: right
