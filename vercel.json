@@ -1,5 +1,5 @@
 {
-    "rewrites": [
-      { "source": "/(.*)", "destination": "/app.py" }
+    "builds": [
+      { "source": "/(.*)", "destination": "app.py" }
     ]
   }
