@@ -16,7 +16,7 @@ $('page .page-header ul li').click(function () {
   $('section#' + $(this).data('target-section'), page).trigger('load');
 })
 
-//button 
+//button
 $('section#out button').click(function () {
   var button = $(this).parent().parent().parent();
   $('button.active', button).addClass(' ');
@@ -102,6 +102,7 @@ function update_value(lab_code, value, filter) {
 }
 function filter(filter) {
   $('page#blood section#out table#data tbody').html('');
+  $('section#out div span.feedback').html('<div class="loader"><div class="scanner"><span>Loading...</span></div></div>');
   $.ajax({
     url: '/blood/filter',
     type: 'GET',
@@ -121,9 +122,10 @@ function filter(filter) {
 
         $('page#blood section#out table#data tbody').append(row);
       })
+      $('section#out div span.feedback').html('');
     },
     error: function () {
-      alert('Server error');
+      $('section#out div span.feedback').html('Server Error');
     },
   });
 }

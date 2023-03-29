@@ -1,11 +1,18 @@
 # Tasks of blood internal software
 - [x] tab(in) checkbox for every test
+- [] tab(in) re-enter code , update tests and restart the cycle without removing last values and prevent error
 - [x] tab(out) side filter to filter between tests 
 - [x] tab(out) list updated for every filter to show who is waiting and who is done and got results 
 - [x] tab(out) define the adding criteria 
 - [x] tab(out) ability to add data in the last mentioned view 
-- [x] tab(centrifuge) change the number of tubes and add to database
-- [] tab(centrifuge) list for the centrifuge and a button to spicfy if the tubes are centered  
+- [] tab(out) change he tests and update database based on eman's choice
+- [] tab(centrifuge) change the number of tubes and add to database
+- [] tab(centrifuge) list for the centrifuge and 
+- [] tab(centrifuge) button to spicfy if the tubes are centered 
+- [] tab(centrifuge) date of centrifuge
+- [] tab(CBC) list for the cbc and a button to open camera and upload
 - [x] tab(Sheet) add out col which indecates if all results done  
 - [x] tab(Sheet) add tests a field that shows all tests  
 - [x] overall  -> mobile view
+- [] overall  -> change colors based on nesma choice 
+- [] try to -> camera and allow only admin to in and kick 
