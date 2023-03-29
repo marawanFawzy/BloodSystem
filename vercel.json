@@ -1,0 +1,13 @@
+{
+    "builds":[
+        {
+            "src":"app.py"
+        }
+    ],
+    "routes":[
+        {
+            "src":"/(.*)",
+            "dest":"app.py"
+        }
+    ]
+}
