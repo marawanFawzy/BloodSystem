@@ -1,11 +1,11 @@
 # Tasks of blood internal software
 - [x] tab(in) checkbox for every test
-- [] tab(in) re-enter code , update tests and restart the cycle without removing last values and prevent error
+- [x] tab(in) re-enter code , update tests and restart the cycle without removing last values and prevent error
 - [x] tab(out) side filter to filter between tests 
 - [x] tab(out) list updated for every filter to show who is waiting and who is done and got results 
 - [x] tab(out) define the adding criteria 
 - [x] tab(out) ability to add data in the last mentioned view 
-- [] tab(out) change he tests and update database based on eman's choice
+- [] tab(out) change the tests and update database based on eman's choice
 - [x] tab(centrifuge) change the number of tubes and add to database
 - [x] tab(centrifuge) list for the centrifuge
 - [x] tab(centrifuge) button to spicfy if the tubes are centered 

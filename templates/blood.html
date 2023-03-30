@@ -11,17 +11,26 @@
 
 <section id="in" class="active">
   <form class="form-horizontal" class="col-sm-5" action="/blood/in" method="POST">
-    <div class="form-group">
-      <label for="bl_in_code" class="col-sm-1 control-label"><label for="bl_in_code">Sheet code</label></label>
-      <div class="col-sm-3"><input class="form-control input" id="bl_in_code" name="sheet_code" type="text" value=""
-          autocomplete="off" required></div>
+    <div style="text-align: -webkit-center;flex-direction: column;display: block;">
+      <div style="display: block;">
+        <label for="bl_in_code" class="control-label"><label for="bl_in_code">Sheet code</label></label>
+        <div><input style="text-align: center;" class="form-control input" id="bl_in_code" name="sheet_code" type="text" value=""
+            autocomplete="off" required></div>
+      </div>
+      <div style="display: block;">
+        <label for="bl_in_labcode" class="control-label"><label for="bl_in_labcode">Lab code</label></label>
+        <div><input style="text-align: center;" class="form-control input" id="bl_in_labcode" name="lab_code" type="text" value=""
+            autocomplete="off" required></div>
+      </div>
+      <div style="margin: auto; text-align: center;display: inline-flex;">
+        <label class="rocker rocker-small">
+          <input type="checkbox" id="old" name="old">
+          <span class="switch-left">old</span>
+          <span class="switch-right">new</span>
+        </label>
+      </div>
+    <div><span class="feedback"></span></div>
     </div>
-    <div class="form-group">
-      <label for="bl_in_labcode" class="col-sm-1 control-label"><label for="bl_in_labcode">Lab code</label></label>
-      <div class="col-sm-3"><input class="form-control input" id="bl_in_labcode" name="lab_code" type="text" value=""
-          autocomplete="off" required></div>
-    </div>
-    <span class="feedback"></span>
     <table style="align-items: center;" class="table table-striped">
       <tbody style="margin: auto;">
         <tr>
@@ -149,10 +158,10 @@
           </td>
         </tr>
         <tr>
-          <td><label for="glucose" class="col-sm-1 control-label"><label for="glucose">Glucose</label></label></td>
+          <td><label for="Glucose" class="col-sm-1 control-label"><label for="Glucose">Glucose</label></label></td>
           <td>
             <div class="checkbox-wrapper-31">
-              <input id="glucose" name="glucose" type="checkbox">
+              <input id="Glucose" name="Glucose" type="checkbox">
               <svg viewBox="0 0 35.6 35.6">
                 <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
                 <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
