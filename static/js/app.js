@@ -168,7 +168,7 @@ function filter(filter) {
       $('section#out div span.feedback').html('');
     },
     error: function () {
-      $('section#out div span.feedback').html('Server Error');
+      $('section#out div span.feedback').html('<span class="error">Server Error</span>');
     },
   });
 }

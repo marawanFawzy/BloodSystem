@@ -7,14 +7,13 @@ import os
 from PIL import Image
 
 
-def compressMe(file, verbose=False):
+def compressMe(file):
 
     # Get the path of the file
-    filepath = os.path.join(os.getcwd(),
-                            file)
+    filepath = os.path.join(os.getcwd(),file)
 
     # open the image
-    picture = Image.open(filepath)
+    picture = Image.open(filepath).convert('RGB')
 
     # Save the picture with desired quality
     # To change the quality of image,
