@@ -11,6 +11,7 @@ sys.dont_write_bytecode = True
 # Create Flask application
 
 app = flask.Flask(__name__)
+app.config['UPLOAD_FOLDER'] = 'C:\\Users\\maraw\\Desktop\\7yah\\BloodSystem\\Hayah 51 Software\\static\\uploads'
 app.config.from_object('core.config')
 
 # Import stuff
@@ -26,8 +27,7 @@ special_refs = dict(
 core.url_loader.load_from(app.config['DIR_URL_RULES'], app, **special_refs)
 
 # Export stuff to Jinja2
-app.jinja_env.globals.update(
-)
+app.jinja_env.globals.update()
 
 
 # Request handlers

@@ -16,6 +16,16 @@ $('page .page-header ul li').click(function () {
   $('section#' + $(this).data('target-section'), page).trigger('load');
 })
 
+function openModal(id) {
+  // dailog.show(); 
+  var dailog = document.getElementById(id);
+  dailog.showModal();
+}
+
+function closeModal(id) {
+  var dailog = document.getElementById(id);
+  dailog.close();
+}
 //button
 $('section#out button').click(function () {
   var button = $(this).parent().parent().parent();
@@ -93,7 +103,7 @@ function update_centrifuge_value(lab_code, value) {
         $('section#out div span.feedback').html(response);
       },
     });
-  },200)
+  }, 200)
 }
 function update_value(lab_code, value, filter) {
   if (value === "")
@@ -131,11 +141,27 @@ function filter(filter) {
       data.forEach(function (x) {
         count += 1;
         lab_code = x[00];
-        row = "<tr id=row-" + lab_code + "  ><td><form class=\"form-out\">";
-        row += "<h3 style=\"margin-left: 10px; min-width:80px\">" + lab_code + "</h3>"
-        row += "<input class=\"form-control form-out-element input left\" id=" + lab_code + " autocomplete=\"off\" type=\"text\" required>";
-        row += "<button type=\"button\" class=\"button form-control form-out-element right\" onclick=\"setTimeout(function () {update_value('" + lab_code + "', document.getElementById('" + lab_code + "').value , '" + filter + "')},200)\">update</button>"
-        row += "</form></td></tr>"
+        if (filter === 'CBC') {
+          row =
+            `<tr id=row-` + lab_code + `  >
+              <td>
+                <form class="form-out" id="upload-file-` + lab_code + `" method="post" enctype="multipart/form-data">
+                  <h3 style=\"margin-left: 10px; min-width:80px\">` + lab_code + `</h3>
+                  <input name="lab_code" type="hidden" value="`+ lab_code + `">
+                  <input class="form-control form-out-element input left" name="file" type="file">
+                  <button class="button form-control form-out-element right" id="upload-file-btn-`+ lab_code + `" onclick="upload('` + lab_code + `')" type="button">Upload</button>
+                </form>
+              </td>
+            </tr>`
+        }
+        else {
+          row = "<tr id=row-" + lab_code + "  ><td><form class=\"form-out\">";
+          row += "<h3 style=\"margin-left: 10px; min-width:80px\">" + lab_code + "</h3>"
+          row += "<input class=\"form-control form-out-element input left\" id=" + lab_code + " autocomplete=\"off\" type=\"text\" required>";
+          row += "<button type=\"button\" class=\"button form-control form-out-element right\" onclick=\"setTimeout(function () {update_value('" + lab_code + "', document.getElementById('" + lab_code + "').value , '" + filter + "')},200)\">update</button>"
+          row += "</form></td></tr>"
+        }
+
 
         $('page#blood section#out table#data tbody').append(row);
       })
@@ -245,7 +271,8 @@ function refreshBloodSheet() {
 
         show += "sheet code = " + sheet_code
         row = '<tr><td>' + count + '</td><td>' + lab_code + '</td><td>' + in_time + '</td><td>' + out_time + '</td><td>' + tubes + '</td><td>' + res + '</td>';
-        row += '<td><button style="min-width:60px" onclick="setTimeout(function () {alert(\`' + show + '\`)},300);">results</button></td></tr>';
+        row += '<td><button style="min-width:60px" onclick="setTimeout(function () {alert(\`' + show + '\`)},300);">results</button></td>';
+        row += '<td><button style="'+(cbc != -1 && cbc!=-10? "visibility: visible;":"visibility: hidden;")+'" onclick="openModal(\'dialog-' + lab_code + '\')">CBC result</button><dialog id="dialog-' + lab_code + '"><img src="/static/uploads/' + lab_code + '.png" alt="No result yet" height="500" width="500"/><button onclick="closeModal(\'dialog-' + lab_code + '\')" class="right">Close</button></dialog></td></tr>'
         $('page#blood section#sheet table tbody').append(row);
       })
     },
@@ -307,3 +334,22 @@ function decrement(id) {
   }
   document.getElementById(id).stepDown();
 }
+function upload(lab_code) {
+  var form_data = new FormData($('#upload-file-' + lab_code)[0]);
+  $.ajax({
+    type: 'POST',
+    url: '/blood/upload',
+    data: form_data,
+    contentType: false,
+    cache: false,
+    processData: false,
+    success: function (response) {
+      console.log('Success!');
+      if (!response.includes("Error")) {
+        q = "row-" + lab_code
+        document.getElementById(q).innerText = ''
+      }
+    },
+  });
+
+};

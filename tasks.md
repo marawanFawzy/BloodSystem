@@ -10,10 +10,12 @@
 - [x] tab(centrifuge) list for the centrifuge
 - [x] tab(centrifuge) button to spicfy if the tubes are centered 
 - [x] tab(centrifuge) date of centrifuge
-- [] tab(CBC) list for the cbc and a button to open camera and upload
-- [] tab(CBC) button to open camera and upload
+- [] tab(centrifuge) check is user is not in database 
+- [x] tab(CBC) list for the cbc and a button to open camera and upload
+- [x] tab(CBC) button to open camera and upload
 - [x] tab(Sheet) add out col which indecates if all results done  
 - [x] tab(Sheet) add tests a field that shows all tests  
+- [] tab(kick) delete the image from the system if found
 - [x] overall  -> mobile view
 - [] overall  -> change colors based on nesma choice 
 - [] try to -> camera and allow only admin to in and kick 
