@@ -278,7 +278,7 @@ span.log-line {
     border-radius: 50%;
     z-index: -1;
     background-color: #F9DBBB;
-    transition: .4s ease all;
+    transition: .5s ease all;
 }
 
 .button::before {
@@ -388,7 +388,7 @@ button.active {
     padding: 5px;
     border-radius: 5px;
     background-color: whitesmoke;
-    transition: .3s;
+    transition: .5s;
     color: #2E3840;
 }
 

@@ -6,11 +6,12 @@
 - [x] tab(out) define the adding criteria 
 - [x] tab(out) ability to add data in the last mentioned view 
 - [] tab(out) change he tests and update database based on eman's choice
-- [] tab(centrifuge) change the number of tubes and add to database
-- [] tab(centrifuge) list for the centrifuge and 
-- [] tab(centrifuge) button to spicfy if the tubes are centered 
-- [] tab(centrifuge) date of centrifuge
+- [x] tab(centrifuge) change the number of tubes and add to database
+- [x] tab(centrifuge) list for the centrifuge
+- [x] tab(centrifuge) button to spicfy if the tubes are centered 
+- [x] tab(centrifuge) date of centrifuge
 - [] tab(CBC) list for the cbc and a button to open camera and upload
+- [] tab(CBC) button to open camera and upload
 - [x] tab(Sheet) add out col which indecates if all results done  
 - [x] tab(Sheet) add tests a field that shows all tests  
 - [x] overall  -> mobile view

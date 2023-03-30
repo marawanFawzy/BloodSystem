@@ -77,6 +77,24 @@ $("form").submit(function (e) {
   $.ajax(request);
   return false;
 });
+function update_centrifuge_value(lab_code, value) {
+  setTimeout(function () {
+    $.ajax({
+      url: '/blood/centrifuge',
+      type: 'GET',
+      data: { 'lab_code': lab_code, 'value': value },
+      success: function (response) {
+        $('section#out div span.feedback').html(response);
+        if (!response.includes("Error")) {
+          refreshCentrifuge();
+        }
+      },
+      error: function (response) {
+        $('section#out div span.feedback').html(response);
+      },
+    });
+  },200)
+}
 function update_value(lab_code, value, filter) {
   if (value === "")
     alert("please fill the value of lab code (" + lab_code + ") first");
@@ -117,7 +135,6 @@ function filter(filter) {
         row += "<h3 style=\"margin-left: 10px; min-width:80px\">" + lab_code + "</h3>"
         row += "<input class=\"form-control form-out-element input left\" id=" + lab_code + " autocomplete=\"off\" type=\"text\" required>";
         row += "<button type=\"button\" class=\"button form-control form-out-element right\" onclick=\"setTimeout(function () {update_value('" + lab_code + "', document.getElementById('" + lab_code + "').value , '" + filter + "')},200)\">update</button>"
-        //row += "<button type=\"button\" class=\"form-control form-out-element\" onclick=\"update_value('" + lab_code + "', document.getElementById('" + lab_code + "').value , '" + filter + "')\">update</button>";
         row += "</form></td></tr>"
 
         $('page#blood section#out table#data tbody').append(row);
@@ -237,14 +254,56 @@ function refreshBloodSheet() {
     },
   });
 }
-function increment() {
+function refreshCentrifuge() {
+  $('page#blood section#centrifuge table tbody').html('');
+  $.ajax({
+    url: '/blood/getcentrifuge',
+    type: 'GET',
+    data: '',
+    success: function (response) {
+      data = JSON.parse(unescape(response));
+      data.forEach(function (x) {
+        row = "";
+        lab_code = x[00];
+        Date_Centrifuged_timestamp = x[01];
+        in_time = x[02];
+        tubes = x[05];
+        Centrifuged = x[06];
+        Date_Centrifuged = x[07];
+        out_time = x[09];
+        for (let i = 11; i < 31; i++) {
+          if (x[i] != -10) {
+            if (i == 12 || i == 24 || i == 22)
+              continue;
+            else {
+              console.log(lab_code)
+              row += "<tr id=\"" + lab_code + "\"><td><h3>" + lab_code + "</h3></td>";
+              row += `<td class="no_border"><button class="minus" style="font-size:30px;` + (Centrifuged != 0 ? "visibility: hidden;" : " ") + `" type="button" onclick="decrement('tubes-` + lab_code + `')">-</button></td>`;
+              row += `<td class="no_border"><input style="display: inline;" class="form-control input" id="tubes-` + lab_code + `" name="tubes-` + lab_code + `" type="number" autocomplete="off" required ` + (Centrifuged != 0 ? "disabled " : " ") + `min="0" value="` + tubes + `"></td>`
+              row += `<td class="no_border"><button class="plus" style="font-size: 30px;` + (Centrifuged != 0 ? "visibility: hidden;" : " ") + `" type="button" onclick="increment('tubes-` + lab_code + `')">+</button></td>`
+              row += `<td>` + (Date_Centrifuged_timestamp === 0 ? "not yet" : Date_Centrifuged) + `</td>`;
+              row += `<td><div class="checkbox-wrapper-31"><input onclick="update_centrifuge_value('` + lab_code + `',document.getElementById('tubes-` + lab_code + `').value)" id=\"check-` + lab_code + `\" name=\"check-` + lab_code + `\" type="checkbox"` + (Centrifuged != 0 ? "disabled checked=\"\"" : " ") + `><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td></tr>`
+              $('page#blood section#centrifuge table tbody').append(row);
+              break
+            }
+          }
+        }
 
-  document.getElementById('bl_tubes').stepUp();
+      })
+    },
+    error: function (response) {
+      alert(response);
+    },
+  })
 }
-function decrement() {
-  if (document.getElementById('bl_tubes').value == 0) {
-    document.getElementById('bl_tubes').value = 0;
+function increment(id) {
+
+  document.getElementById(id).stepUp();
+}
+function decrement(id) {
+  if (document.getElementById(id).value == 0) {
+    document.getElementById(id).value = 0;
     return;
   }
-  document.getElementById('bl_tubes').stepDown();
+  document.getElementById(id).stepDown();
 }

@@ -1,5 +1,0 @@
-{
-    "builds": [
-      { "source": "/(.*)", "destination": "app.py" }
-    ]
-  }
