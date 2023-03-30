@@ -272,7 +272,7 @@ function refreshBloodSheet() {
         show += "sheet code = " + sheet_code
         row = '<tr><td>' + count + '</td><td>' + lab_code + '</td><td>' + in_time + '</td><td>' + out_time + '</td><td>' + tubes + '</td><td>' + res + '</td>';
         row += '<td><button style="min-width:60px" onclick="setTimeout(function () {alert(\`' + show + '\`)},300);">results</button></td>';
-        row += '<td><button style="'+(cbc != -1 && cbc!=-10? "visibility: visible;":"visibility: hidden;")+'" onclick="openModal(\'dialog-' + lab_code + '\')">CBC result</button><dialog id="dialog-' + lab_code + '"><img src="/static/uploads/' + lab_code + '.png" alt="No result yet" height="500" width="500"/><button onclick="closeModal(\'dialog-' + lab_code + '\')" class="right">Close</button></dialog></td></tr>'
+        row += '<td><button style="' + (cbc != -1 && cbc != -10 ? "visibility: visible;" : "visibility: hidden;") + '" onclick="openModal(\'dialog-' + lab_code + '\')">CBC result</button><dialog id="dialog-' + lab_code + '"><img src="/static/uploads/' + lab_code + '.png" alt="No result yet" height="500" width="500"/><button onclick="closeModal(\'dialog-' + lab_code + '\')" class="right">Close</button></dialog></td></tr>'
         $('page#blood section#sheet table tbody').append(row);
       })
     },
@@ -336,6 +336,7 @@ function decrement(id) {
 }
 function upload(lab_code) {
   var form_data = new FormData($('#upload-file-' + lab_code)[0]);
+  console.log(form_data);
   $.ajax({
     type: 'POST',
     url: '/blood/upload',

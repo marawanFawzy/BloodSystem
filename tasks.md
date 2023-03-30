@@ -18,4 +18,4 @@
 - [] tab(kick) delete the image from the system if found
 - [x] overall  -> mobile view
 - [] overall  -> change colors based on nesma choice 
-- [] try to -> camera and allow only admin to in and kick 
+- [] try to -> allow only admin to in and kick 
