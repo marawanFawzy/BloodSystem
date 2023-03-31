@@ -360,7 +360,8 @@ button.active {
 .minus {
     border: 3px solid #a81616;
     color: #a81616;
-    min-width: 40px;
+    min-width: 30px;
+    padding: 0px;
 }
 
 .minus:before {
@@ -373,7 +374,8 @@ button.active {
 }
 
 .plus {
-    min-width: 40px;
+    min-width: 30px;
+    padding: 0px;
 }
 
 .plus:active {
@@ -413,13 +415,13 @@ button.active {
 }
 
 .table_padding td {
-    padding: 8px;
+    padding: 2px;
     margin: auto;
 }
 
 .table_padding {
     margin: auto;
-    width: 90%;
+    width: 95%;
 }
 
 .container {
@@ -699,3 +701,32 @@ input:focus+.switch-left+.switch-right {
 input:checked:focus+.switch-left+.switch-right {
     color: #333;
 }
+.lock-checkbox {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .lock-checkbox input[type="checkbox"] {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .lock-icon {
+    fill: #00ff40;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 34px;
+    height: 34px;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  
+  .lock-checkbox input[type="checkbox"]:checked + .lock-icon {
+    fill: #ff0000;
+  }
+  

@@ -10,6 +10,7 @@
 - [x] tab(centrifuge) list for the centrifuge
 - [x] tab(centrifuge) button to spicfy if the tubes are centered 
 - [x] tab(centrifuge) date of centrifuge
+- [x] tab(centrifuge) lock to let the doctor edit if needed
 - [x] tab(CBC) list for the cbc and a button to open camera and upload
 - [x] tab(CBC) button to open camera and upload
 - [x] tab(Sheet) add out col which indecates if all results done  

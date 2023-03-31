@@ -88,6 +88,22 @@ $("form").submit(function (e) {
   return false;
 });
 function update_centrifuge_value(lab_code, value) {
+  var checked = document.getElementById("check-" + lab_code).checked;
+  var refresh = true;
+  if (!checked) {
+    var locked = document.getElementById("lock-" + lab_code).checked;
+    if (locked) {
+      document.getElementById("check-" + lab_code).checked = true;
+      return;
+    }
+    else {
+      refresh = false;
+      document.getElementById("increment-" + lab_code).style.visibility = "visible";
+      document.getElementById("decrement-" + lab_code).style.visibility = "visible";
+      document.getElementById("tubes-" + lab_code).disabled =false;
+      document.getElementById("tubes-" + lab_code).setAttribute("min", 0);
+    }
+  }
   setTimeout(function () {
     $.ajax({
       url: '/blood/centrifuge',
@@ -96,7 +112,8 @@ function update_centrifuge_value(lab_code, value) {
       success: function (response) {
         $('section#out div span.feedback').html(response);
         if (!response.includes("Error")) {
-          refreshCentrifuge();
+          if (refresh)
+            refreshCentrifuge()
         }
       },
       error: function (response) {
@@ -104,6 +121,7 @@ function update_centrifuge_value(lab_code, value) {
       },
     });
   }, 200)
+
 }
 function update_value(lab_code, value, filter) {
   if (value === "")
@@ -305,11 +323,20 @@ function refreshCentrifuge() {
             else {
               console.log(lab_code)
               row += "<tr id=\"" + lab_code + "\"><td><h3>" + lab_code + "</h3></td>";
-              row += `<td class="no_border"><button class="minus" style="font-size:30px;` + (Centrifuged != 0 ? "visibility: hidden;" : " ") + `" type="button" onclick="decrement('tubes-` + lab_code + `')">-</button></td>`;
-              row += `<td class="no_border"><input style="display: inline;" class="form-control input" id="tubes-` + lab_code + `" name="tubes-` + lab_code + `" type="number" autocomplete="off" required ` + (Centrifuged != 0 ? "disabled " : " ") + `min="`+tubes+`" value="` + tubes + `"></td>`
-              row += `<td class="no_border"><button class="plus" style="font-size: 30px;` + (Centrifuged != 0 ? "visibility: hidden;" : " ") + `" type="button" onclick="increment('tubes-` + lab_code + `')">+</button></td>`
+              row += `<td class="no_border"><button id="decrement-`+ lab_code + `" class="minus" style="font-size:20px;` + (Centrifuged != 0 ? "visibility: hidden;" : " ") + `" type="button" onclick="decrement('tubes-` + lab_code + `')">-</button></td>`;
+              row += `<td class="no_border"><input style="padding:0px; display: inline;" class="form-control input" id="tubes-` + lab_code + `" name="tubes-` + lab_code + `" type="number" autocomplete="off" required ` + (Centrifuged != 0 ? "disabled " : " ") + `min="` + tubes + `" value="` + tubes + `"></td>`
+              row += `<td class="no_border"><button id="increment-`+ lab_code + `" class="plus" style="font-size: 20px;` + (Centrifuged != 0 ? "visibility: hidden;" : " ") + `" type="button" onclick="increment('tubes-` + lab_code + `')">+</button></td>`
               row += `<td>` + (Date_Centrifuged_timestamp === 0 ? "not yet" : Date_Centrifuged) + `</td>`;
-              row += `<td><div class="checkbox-wrapper-31"><input onclick="update_centrifuge_value('` + lab_code + `',document.getElementById('tubes-` + lab_code + `').value)" id=\"check-` + lab_code + `\" name=\"check-` + lab_code + `\" type="checkbox"` + (Centrifuged != 0 ? "disabled checked=\"\"" : " ") + `><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td></tr>`
+              row += `<td><div class="checkbox-wrapper-31"><input onclick="update_centrifuge_value('` + lab_code + `',document.getElementById('tubes-` + lab_code + `').value)" id=\"check-` + lab_code + `\" name=\"check-` + lab_code + `\" type="checkbox"` + (Centrifuged != 0 ? "checked=\"\"" : " ") + `><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td>`;
+              row += `<td style="padding:0px;"><label class="lock-checkbox">
+              <input id="lock-`+ lab_code + `" type="checkbox"` + (Centrifuged != 0 ? "checked=\"\"" : " ") + `>
+              <span class="lock-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 17c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm6-9h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM8.9 6c0-1.71 1.39-3.1 3.1-3.1s3.1 1.39 3.1 3.1v2H8.9V6z"></path>
+                </svg>
+              </span>
+            </label>
+            </td></tr>`
               $('page#blood section#centrifuge table tbody').append(row);
               break
             }
