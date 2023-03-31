@@ -57,8 +57,7 @@ page .page-header ul {
 page .page-header ul li {
   display: inline-block;
   cursor: pointer;
-  font-size: 13px;
-  margin-left: 3px;
+  font-size: 12px;
 }
 
 .feedback {

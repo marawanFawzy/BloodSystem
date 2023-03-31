@@ -100,7 +100,7 @@ function update_centrifuge_value(lab_code, value) {
       refresh = false;
       document.getElementById("increment-" + lab_code).style.visibility = "visible";
       document.getElementById("decrement-" + lab_code).style.visibility = "visible";
-      document.getElementById("tubes-" + lab_code).disabled =false;
+      document.getElementById("tubes-" + lab_code).disabled = false;
       document.getElementById("tubes-" + lab_code).setAttribute("min", 0);
     }
   }
@@ -175,8 +175,8 @@ function filter(filter) {
         else {
           row = "<tr id=row-" + lab_code + "  ><td><form class=\"form-out\">";
           row += "<h3 style=\"margin-left: 10px; min-width:80px\">" + lab_code + "</h3>"
-          row += "<input class=\"form-control form-out-element input left\" id=" + lab_code + " autocomplete=\"off\" type=\"text\" required>";
-          row += "<button type=\"button\" class=\"button form-control form-out-element right\" onclick=\"setTimeout(function () {update_value('" + lab_code + "', document.getElementById('" + lab_code + "').value , '" + filter + "')},200)\">update</button>"
+          row += "<input class=\"form-control form-out-element input left\" id=\"in-" + lab_code + "\" autocomplete=\"off\" type=\"text\" required>";
+          row += "<button type=\"button\" class=\"button form-control form-out-element right\" onclick=\"setTimeout(function () {update_value('" + lab_code + "', document.getElementById('in-" + lab_code + "').value , '" + filter + "')},200)\">update</button>"
           row += "</form></td></tr>"
         }
 
@@ -288,7 +288,7 @@ function refreshBloodSheet() {
           res = tests;
 
         show += "sheet code = " + sheet_code
-        row = '<tr><td>' + count + '</td><td>' + lab_code + '</td><td>' + in_time + '</td><td>' + out_time + '</td><td>' + tubes + '</td><td>' + res + '</td>';
+        row = '<tr><td>' + count + '</td><td>' + lab_code + '</td><td>' + in_time + '</td><td>' + (in_time === out_time? " " : out_time) + '</td><td>' + tubes + '</td><td>' + res + '</td>';
         row += '<td><button style="min-width:60px" onclick="setTimeout(function () {alert(\`' + show + '\`)},300);">results</button></td>';
         row += '<td><button style="' + (cbc != -1 && cbc != -10 ? "visibility: visible;" : "visibility: hidden;") + '" onclick="openModal(\'dialog-' + lab_code + '\')">CBC result</button><dialog id="dialog-' + lab_code + '"><img src="/static/uploads/' + lab_code + '.png" alt="No result yet" height="500" width="500"/><button onclick="closeModal(\'dialog-' + lab_code + '\')" class="right">Close</button></dialog></td></tr>'
         $('page#blood section#sheet table tbody').append(row);
@@ -323,9 +323,9 @@ function refreshCentrifuge() {
             else {
               console.log(lab_code)
               row += "<tr id=\"" + lab_code + "\"><td><h3>" + lab_code + "</h3></td>";
-              row += `<td class="no_border"><button id="decrement-`+ lab_code + `" class="minus" style="font-size:20px;` + (Centrifuged != 0 ? "visibility: hidden;" : " ") + `" type="button" onclick="decrement('tubes-` + lab_code + `')">-</button></td>`;
+              row += `<td class="no_border"><button id="decrement-` + lab_code + `" class="minus" style="font-size:20px;` + (Centrifuged != 0 ? "visibility: hidden;" : " ") + `" type="button" onclick="decrement('tubes-` + lab_code + `')">-</button></td>`;
               row += `<td class="no_border"><input style="padding:0px; display: inline;" class="form-control input" id="tubes-` + lab_code + `" name="tubes-` + lab_code + `" type="number" autocomplete="off" required ` + (Centrifuged != 0 ? "disabled " : " ") + `min="` + tubes + `" value="` + tubes + `"></td>`
-              row += `<td class="no_border"><button id="increment-`+ lab_code + `" class="plus" style="font-size: 20px;` + (Centrifuged != 0 ? "visibility: hidden;" : " ") + `" type="button" onclick="increment('tubes-` + lab_code + `')">+</button></td>`
+              row += `<td class="no_border"><button id="increment-` + lab_code + `" class="plus" style="font-size: 20px;` + (Centrifuged != 0 ? "visibility: hidden;" : " ") + `" type="button" onclick="increment('tubes-` + lab_code + `')">+</button></td>`
               row += `<td>` + (Date_Centrifuged_timestamp === 0 ? "not yet" : Date_Centrifuged) + `</td>`;
               row += `<td><div class="checkbox-wrapper-31"><input onclick="update_centrifuge_value('` + lab_code + `',document.getElementById('tubes-` + lab_code + `').value)" id=\"check-` + lab_code + `\" name=\"check-` + lab_code + `\" type="checkbox"` + (Centrifuged != 0 ? "checked=\"\"" : " ") + `><svg viewBox="0 0 35.6 35.6"><circle class="background" cx="17.8" cy="17.8" r="17.8"></circle><circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle><polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline></svg></div></td>`;
               row += `<td style="padding:0px;"><label class="lock-checkbox">
