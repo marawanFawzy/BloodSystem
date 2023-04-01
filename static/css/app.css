@@ -16,24 +16,6 @@ page section:not(.active) {
   font-size: 25px;
   cursor: pointer;
 }
-
-.sidebar {
-  user-select: none;
-}
-
-.sidebar li.disabled {
-  background-color: #495049;
-}
-
-.sidebar li.disabled:hover {
-  background-color: #495049;
-}
-
-.sidebar li.disabled a {
-  color: gray;
-  cursor: not-allowed;
-}
-
 page .page-header {
   margin-top: 20px;
   margin-left: 5px;
@@ -79,15 +61,6 @@ page .page-header ul li {
   color: red;
 }
 
-select {
-  height: 30px;
-  width: 100%;
-  border: 1px solid #ccc;
-  padding-left: 4px;
-}
-
-
-
 page section toolbar .right,
 page section toolbar .left {
   display: inline-block;
@@ -118,7 +91,3 @@ page section#sheet table {
   margin-top: 15px;
 }
 
-page section#sheet table thead {
-  background-color: #a81616;
-  color: white;
-}
