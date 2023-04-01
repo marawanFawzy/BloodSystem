@@ -36,10 +36,10 @@ HEX
     --border_color: #c7e7ff;
 }
 
-.green_colored
-{
+.green_colored {
     color: var(--button_filling_true);
     font-weight: bold"
+
 }
 
 body {
@@ -242,7 +242,7 @@ span.log-line {
 }
 
 .button:hover {
-    color:var(--text_color);
+    color: var(--text_color);
 }
 
 .button:active {
@@ -331,8 +331,7 @@ button.active {
     transition: 0.05s all ease;
 }
 
-.plus::before
-{
+.plus::before {
     background-color: var(--button_filling_true);
 }
 
@@ -340,7 +339,7 @@ button.active {
     margin: 4px;
     font-family: monospace;
     outline: none;
-    border: 1px solid var(--white_smooky);
+    border: 2px solid var(--box-shadow);
     padding: 5px;
     border-radius: 5px;
     background-color: var(--white_smooky);
@@ -349,7 +348,7 @@ button.active {
 }
 
 .input:focus {
-    border: 1px solid var(--prim_color);
+    border: 4px solid var(--prim_color);
     box-shadow: 0 0 0 4px var(--prim_color)
 }
 
@@ -587,12 +586,7 @@ button.active {
     transform: rotate(15deg) skewX(15deg);
 }
 
-.switch-right {
-    right: 0.5em;
-    bottom: 0;
-    background-color: #0084d0;
-    color: var(--white_smooky);
-}
+
 
 .switch-left::before,
 .switch-right::before {
@@ -615,9 +609,15 @@ button.active {
     transform: skewY(65deg);
 }
 
-input:checked+.switch-left {
-    background-color: #bd5757;
+.switch-right {
+    right: 0.5em;
+    bottom: 0;
+    background-color: var(--hayah);
+    color: var(--white_smooky);
+}
 
+input:checked+.switch-left {
+    background-color: var(--box-shadow);
     color: var(--white_smooky);
     bottom: 0px;
     left: 0.5em;
