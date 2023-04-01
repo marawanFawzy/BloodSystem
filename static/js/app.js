@@ -254,7 +254,7 @@ function refreshBloodSheet() {
             else if (i == 30) searchfor = "HDL"
 
             result = tests.indexOf(searchfor)
-            res = tests.substring(0, result) + '<span style="color: #6cbe45; font-weight: bold">' + tests.substring(result, result + searchfor.length) + "</span>" + tests.substring(result + searchfor.length);
+            res = tests.substring(0, result) + '<span style="color: #e04141; font-weight: bold">' + tests.substring(result, result + searchfor.length) + "</span>" + tests.substring(result + searchfor.length);
             tests = res
             flag = true;
           }
@@ -290,7 +290,7 @@ function refreshBloodSheet() {
         show += "sheet code = " + sheet_code
         row = '<tr><td>' + count + '</td><td>' + lab_code + '</td><td>' + in_time + '</td><td>' + (in_time === out_time? " " : out_time) + '</td><td>' + tubes + '</td><td>' + res + '</td>';
         row += '<td><button style="min-width:60px" onclick="setTimeout(function () {alert(\`' + show + '\`)},300);">results</button></td>';
-        row += '<td><button style="' + (cbc != -1 && cbc != -10 ? "visibility: visible;" : "visibility: hidden;") + '" onclick="openModal(\'dialog-' + lab_code + '\')">CBC result</button><dialog id="dialog-' + lab_code + '"><img src="/static/uploads/' + lab_code + '.png" alt="No result yet" height="500" width="500"/><button onclick="closeModal(\'dialog-' + lab_code + '\')" class="right">Close</button></dialog></td></tr>'
+        row += '<td><button style=" min-width: 50px;' + (cbc != -1 && cbc != -10 ? "visibility: visible;" : "visibility: hidden;") + '" onclick="openModal(\'dialog-' + lab_code + '\')">CBC</button><dialog id="dialog-' + lab_code + '"><img src="/static/uploads/' + lab_code + '.png" alt="No result yet" height="500" width="500"/><button onclick="closeModal(\'dialog-' + lab_code + '\')" class="right">Close</button></dialog></td></tr>'
         $('page#blood section#sheet table tbody').append(row);
       })
     },

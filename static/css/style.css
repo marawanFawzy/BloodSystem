@@ -1,10 +1,20 @@
-.more_size{
+@font-face {
+    font-family: Primary;
+    src: url('../fonts/Raleway-Medium.ttf');
+}
+
+@font-face {
+    font-family: PrimaryBold;
+    src: url('../fonts/Raleway-SemiBold.ttf');
+}
+
+.more_size {
     font-size: 20px;
 }
 
 :root {
     --background_color: #77E7FF;
-    --prim_color: #b0d9ff;
+    --prim_color: #36b6ff;
     --box-shadow: #0d77b5;
     --text_color: #000;
     --button_filling_true: #92cf29;
@@ -13,10 +23,12 @@
     --border_color: #107cbd;
 
 }
+
 .table-striped>tbody>tr:nth-of-type(odd) {
     background-color: var(--prim_color);
 }
-page section#sheet table thead {
+
+thead {
     background-color: var(--box-shadow);
     color: var(--white_smooky);
 }
@@ -25,7 +37,7 @@ body {
     background: var(--background_color);
     color: var(--text_color);
     font-size: 12px;
-    font-family: monospace;
+    font-family: Primary;
 }
 
 header {
@@ -45,8 +57,8 @@ div.navbar {
 }
 
 span.logo {
-    font-size: 22px;
-    font-family: sans-serif;
+    font-size: 25px;
+    font-family: PrimaryBold;
     line-height: 40px;
     cursor: default;
 }
@@ -164,7 +176,6 @@ span.log-line {
 }
 
 .button {
-    --color: var(--text_color);
     background-color: transparent;
     border-radius: .3em;
     position: relative;
@@ -176,7 +187,7 @@ span.log-line {
     border: 1px solid;
     font-family: inherit;
     text-transform: uppercase;
-    color: var(--color);
+    color: var(--text_color);
     z-index: 1;
 }
 
@@ -211,7 +222,7 @@ span.log-line {
 }
 
 .button:hover {
-    color: var(--text_color);
+    color: var(--prim_color);
 }
 
 .button:active {
@@ -370,6 +381,7 @@ button.active {
     border-radius: 5px;
     transition: all .3s;
 }
+
 /* logo heart beat */
 .loading {
     display: inline-block;
