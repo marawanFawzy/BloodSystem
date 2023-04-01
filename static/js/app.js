@@ -254,7 +254,7 @@ function refreshBloodSheet() {
             else if (i == 30) searchfor = "HDL"
 
             result = tests.indexOf(searchfor)
-            res = tests.substring(0, result) + '<span style="color: #e04141; font-weight: bold">' + tests.substring(result, result + searchfor.length) + "</span>" + tests.substring(result + searchfor.length);
+            res = tests.substring(0, result) + '<span class="green_colored";>' + tests.substring(result, result + searchfor.length) + "</span>" + tests.substring(result + searchfor.length);
             tests = res
             flag = true;
           }
@@ -262,7 +262,7 @@ function refreshBloodSheet() {
         for (let i = 11; i < 31; i++) {
           if (x[i] != -10) {
             if (i == 11) show += "Hepatitis = " + (hepatitis != -1 ? hepatitis : " ") + "\n"
-            else if (i == 12) show += "CBC = " + (cbc != -1 ? cbc : " ") + "\n"
+            //else if (i == 12) show += "CBC = " + (cbc != -1 ? cbc : " ") + "\n"
             else if (i == 13) show += "Albumin = " + (albumin != -1 ? albumin : " ") + "\n"
             else if (i == 14) show += "GPT = " + (gpt != -1 ? gpt : " ") + "\n"
             else if (i == 15) show += "PT = " + (pt != -1 ? pt : " ") + "\n"

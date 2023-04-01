@@ -17,5 +17,5 @@
 - [x] tab(Sheet) add tests a field that shows all tests  
 - [x] tab(kick) delete the image from the system if found
 - [x] overall  -> mobile view
-- [] overall  -> change colors based on nesma choice 
+- [x] overall  -> change colors based on nesma choice 
 - [x] try to -> allow only admin to in and kick 
