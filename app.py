@@ -11,7 +11,6 @@ sys.dont_write_bytecode = True
 # Create Flask application
 
 app = flask.Flask(__name__)
-app.config['UPLOAD_FOLDER'] = 'C:\\Users\\maraw\\Desktop\\7yah\\BloodSystem\\Hayah 51 Software\\static\\uploads'
 app.config.from_object('core.config')
 
 # Import stuff

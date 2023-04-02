@@ -147,7 +147,7 @@ span.log-line {
 
 .checkbox-wrapper-31 .stroke {
     fill: none;
-    stroke: black;
+    stroke: var(--box-shadow);
     stroke-miterlimit: 10;
     stroke-width: 2px;
     stroke-dashoffset: 100;
@@ -158,7 +158,7 @@ span.log-line {
 
 .checkbox-wrapper-31 .check {
     fill: none;
-    stroke: black;
+    stroke: var(--box-shadow);
     stroke-linecap: round;
     stroke-linejoin: round;
     stroke-width: 2px;
