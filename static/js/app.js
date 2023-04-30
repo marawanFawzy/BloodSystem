@@ -230,6 +230,7 @@ function refreshBloodSheet() {
         var res = "";
         var show = "";
         var flag = false;
+        var enable_print = true
         for (let i = 11; i < 31; i++) {
           if (x[i] != -10 && x[i] != -1) {
             if (i == 11) searchfor = "Hepatitis"
@@ -258,39 +259,43 @@ function refreshBloodSheet() {
             tests = res
             flag = true;
           }
+          if (x[i] == -1 || x[12] == 0)
+            enable_print = false
+
         }
         for (let i = 11; i < 31; i++) {
           if (x[i] != -10) {
-            if (i == 11) show += "Hepatitis = " + (hepatitis != -1 ? hepatitis : " ") + "\n"
+            if (i == 11) show += "Hepatitis " + (hepatitis != -1 ? hepatitis : " ") + "\n"
             //else if (i == 12) show += "CBC = " + (cbc != -1 ? cbc : " ") + "\n"
-            else if (i == 13) show += "Albumin = " + (albumin != -1 ? albumin : " ") + "\n"
-            else if (i == 14) show += "GPT = " + (gpt != -1 ? gpt : " ") + "\n"
-            else if (i == 15) show += "PT = " + (pt != -1 ? pt : " ") + "\n"
-            else if (i == 16) show += "Bilirubin_direct = " + (bilirubin_direct != -1 ? bilirubin_direct : " ") + "\n"
-            else if (i == 17) show += "Bilirubin_total = " + (bilirubin_total != -1 ? bilirubin_total : " ") + "\n"
-            else if (i == 18) show += "Creatinine = " + (creatinine != -1 ? creatinine : " ") + "\n"
-            else if (i == 19) show += "Urea = " + (urea != -1 ? urea : " ") + "\n"
-            else if (i == 20) show += "Uric = " + (uric != -1 ? uric : " ") + "\n"
-            else if (i == 21) show += "Glucose = " + (glucose != -1 ? glucose : " ") + "\n"
-            else if (i == 22) show += "ESR = " + (esr != -1 ? esr : " ") + "\n"
-            else if (i == 23) show += "TAG = " + (tag != -1 ? tag : " ") + "\n"
-            else if (i == 24) show += "HBA1C = " + (hba1c != -1 ? hba1c : " ") + "\n"
-            else if (i == 25) show += "Total_cholesterol = " + (Total_cholesterol != -1 ? Total_cholesterol : " ") + "\n"
-            else if (i == 26) show += "2Hpp = " + (_2Hpp != -1 ? _2Hpp : " ") + "\n"
-            else if (i == 27) show += "ASOT = " + (asot != -1 ? asot : " ") + "\n"
-            else if (i == 28) show += "CRP = " + (crp != -1 ? crp : " ") + "\n"
-            else if (i == 29) show += "LDL = " + (ldl != -1 ? lab_code : " ") + "\n"
-            else if (i == 30) show += "HDL = " + (hdl != -1 ? hdl : " ") + "\n"
+            else if (i == 13) show += "Albumin " + (albumin != -1 ? albumin : " ") + "\n"
+            else if (i == 14) show += "GPT " + (gpt != -1 ? gpt : " ") + "\n"
+            else if (i == 15) show += "PT " + (pt != -1 ? pt : " ") + "\n"
+            else if (i == 16) show += "Bilirubin_direct " + (bilirubin_direct != -1 ? bilirubin_direct : " ") + "\n"
+            else if (i == 17) show += "Bilirubin_total " + (bilirubin_total != -1 ? bilirubin_total : " ") + "\n"
+            else if (i == 18) show += "Creatinine " + (creatinine != -1 ? creatinine : " ") + "\n"
+            else if (i == 19) show += "Urea " + (urea != -1 ? urea : " ") + "\n"
+            else if (i == 20) show += "Uric " + (uric != -1 ? uric : " ") + "\n"
+            else if (i == 21) show += "Glucose " + (glucose != -1 ? glucose : " ") + "\n"
+            else if (i == 22) show += "ESR " + (esr != -1 ? esr : " ") + "\n"
+            else if (i == 23) show += "TAG " + (tag != -1 ? tag : " ") + "\n"
+            else if (i == 24) show += "HBA1C " + (hba1c != -1 ? hba1c : " ") + "\n"
+            else if (i == 25) show += "Total_cholesterol " + (Total_cholesterol != -1 ? Total_cholesterol : " ") + "\n"
+            else if (i == 26) show += "2Hpp " + (_2Hpp != -1 ? _2Hpp : " ") + "\n"
+            else if (i == 27) show += "ASOT " + (asot != -1 ? asot : " ") + "\n"
+            else if (i == 28) show += "CRP " + (crp != -1 ? crp : " ") + "\n"
+            else if (i == 29) show += "LDL " + (ldl != -1 ? lab_code : " ") + "\n"
+            else if (i == 30) show += "HDL " + (hdl != -1 ? hdl : " ") + "\n"
 
           }
         }
         if (!flag)
           res = tests;
 
-        show += "sheet code = " + sheet_code
-        row = '<tr><td>' + count + '</td><td>' + lab_code + '</td><td>' + in_time + '</td><td>' + (in_time === out_time? " " : out_time) + '</td><td>' + tubes + '</td><td>' + res + '</td>';
+        show += "sheet_code " + sheet_code
+        row = '<tr><td>' + count + '</td><td>' + lab_code + '</td><td>' + in_time + '</td><td>' + (in_time === out_time ? " " : out_time) + '</td><td>' + tubes + '</td><td>' + res + '</td>';
         row += '<td><button style="min-width:60px" onclick="setTimeout(function () {alert(\`' + show + '\`)},300);">results</button></td>';
-        row += '<td><button style=" min-width: 50px;' + (cbc != -1 && cbc != -10 ? "visibility: visible;" : "visibility: hidden;") + '" onclick="openModal(\'dialog-' + lab_code + '\')">CBC</button><dialog id="dialog-' + lab_code + '"><img src="/static/uploads/' + lab_code + '.png" alt="No result yet" height="500" width="500"/><button onclick="closeModal(\'dialog-' + lab_code + '\')" class="right">Close</button></dialog></td></tr>'
+        row += '<td><button style=" min-width: 50px;' + (cbc != -1 && cbc != -10 ? "visibility: visible;" : "visibility: hidden;") + '" onclick="openModal(\'dialog-' + lab_code + '\')">CBC</button><dialog id="dialog-' + lab_code + '"><img src="/static/uploads/' + lab_code + '.png" alt="No result yet" height="500" width="500"/><button onclick="closeModal(\'dialog-' + lab_code + '\')" class="right">Close</button></dialog></td>'
+        row += '<td><button style=" min-width: 50px; ' + (enable_print ? "visibility: visible;" : "visibility: hidden;") + '" onclick="print(' + lab_code + ',\`' + show + '\`)">print</button></td></tr>'
         $('page#blood section#sheet table tbody').append(row);
       })
     },
@@ -298,6 +303,30 @@ function refreshBloodSheet() {
       alert('Server error');
     },
   });
+}
+function print(lab_code, data) {
+  console.log(data)
+  let body = {}
+  data = data.split('\n')
+  data.forEach((x) => {
+    el = x.split(' ')
+    body[el[0]] = el[1]
+  })
+
+  setTimeout(function () {
+    $.ajax({
+      url: '/blood/printReport',
+      type: 'POST',
+      data: { 'body': JSON.stringify(body), 'lab_code': lab_code },
+      success: function (response) {
+        console.log(response)
+      },
+      error: function (response) {
+        $('section#out div span.feedback').html(response);
+      },
+    });
+  }, 0);
+
 }
 function refreshCentrifuge() {
   $('page#blood section#centrifuge table tbody').html('');
