@@ -4,7 +4,7 @@ from database import get_db
 import lib
 import pdfkit
 
-
+#not used 
 def post():
     try:
         body = request.form['body']

@@ -1,6 +1,5 @@
 // Sidebar
 var sidebar_is_shown = false;
-var open = true
 var filled = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 // Sections
@@ -295,7 +294,7 @@ function refreshBloodSheet() {
         row = '<tr><td>' + count + '</td><td>' + lab_code + '</td><td>' + in_time + '</td><td>' + (in_time === out_time ? " " : out_time) + '</td><td>' + tubes + '</td><td>' + res + '</td>';
         row += '<td><button style="min-width:60px" onclick="setTimeout(function () {alert(\`' + show + '\`)},300);">results</button></td>';
         row += '<td><button style=" min-width: 50px;' + (cbc != -1 && cbc != -10 ? "visibility: visible;" : "visibility: hidden;") + '" onclick="openModal(\'dialog-' + lab_code + '\')">CBC</button><dialog id="dialog-' + lab_code + '"><img src="/static/uploads/' + lab_code + '.png" alt="No result yet" height="500" width="500"/><button onclick="closeModal(\'dialog-' + lab_code + '\')" class="right">Close</button></dialog></td>'
-        row += '<td><button style=" min-width: 50px; ' + (enable_print ? "visibility: visible;" : "visibility: hidden;") + '" onclick="print(' + lab_code + ',\`' + show + '\`)">print</button></td></tr>'
+        row += '<td><button style=" min-width: 50px; ' + (enable_print ? "visibility: visible;" : "visibility: hidden;") + '" onclick="PagePrint(' + lab_code + ',\`' + show + '\`)">print</button></td></tr>'
         $('page#blood section#sheet table tbody').append(row);
       })
     },
@@ -304,28 +303,85 @@ function refreshBloodSheet() {
     },
   });
 }
-function print(lab_code, data) {
+function PagePrint(lab_code, data) {
+  var date = new Date().toLocaleString();
   console.log(data)
-  let body = {}
   data = data.split('\n')
-  data.forEach((x) => {
-    el = x.split(' ')
-    body[el[0]] = el[1]
-  })
+  el = data[data.length - 1].split(' ')
+  pageBody = ` <h1 class="m20">تقرير معمل الدم</h1>
+  <h1 class="m40">قافلة حياة 53</h1>
+  <div style="margin: auto;">
+      تحريرا في `+ date.split(',')[0] + `<br>
+      `+ date.split(',')[1] + `
+  </div>
+  <div style="display: flex; border: black solid 1px; padding: 10px;">
+      <div style="display: flex;margin-left: 150px;">
+          <span style=" border: black none 1px; padding: 10px;">
+              lab code
+          </span>
+          <span style="  border: black solid 1px; padding: 10px;">
+              `+ lab_code + `
+          </span>
+      </div>
+      <div style="display: flex; float: right; margin-left: auto;margin-right: 150px;">
+          <span style="border: black none 1px; padding: 10px;">
+              sheet code
+          </span>
+          <span style="border: black solid 1px; padding: 10px;">
+              `+ el[1] + `
+          </span>
+      </div>
+  </div>
+  <h1 class="m40">النتائج</h1>
+  <table>
+        <tbody>
+  `
+  for (var i = 0; i < data.length - 1; i++) {
+    el = data[i].split(' ')
+    pageBody +=
+      `  <tr>
+      <td class="label">
+          `+ el[0] + `
+      </td>
+      <td style="border: black solid 1px;">
+          `+ el[1] + `
+      </td>
+  </tr>`
+  }
+  pageBody += `</tbody></table>`
+  var w = window.open()
+  w.document.head.innerHTML = `<style>
+  body {
+      margin: 10px;
+      border: black solid 3px;
+      padding: 15px;
+      height: 900px;
+      text-align-last: center;
+  }
 
-  setTimeout(function () {
-    $.ajax({
-      url: '/blood/printReport',
-      type: 'POST',
-      data: { 'body': JSON.stringify(body), 'lab_code': lab_code },
-      success: function (response) {
-        console.log(response)
-      },
-      error: function (response) {
-        $('section#out div span.feedback').html(response);
-      },
-    });
-  }, 0);
+  .m40 {
+      margin-bottom: 40px;
+  }
+  .m20{
+      margin-bottom: 20px;
+  }
+  
+  td {
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  
+  .label {
+    text-align-last: start;
+  }
+</style>`
+  w.document.body.innerHTML = pageBody;
+  w.print()
+  w.onafterprint = function close() {
+    w.close()
+  }
 
 }
 function refreshCentrifuge() {
