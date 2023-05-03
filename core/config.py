@@ -9,12 +9,12 @@ UPLOAD_FOLDER = 'C:\\Users\\maraw\\Desktop\\7yah\\BloodSystem\\Hayah 51 Software
 if DEBUG:
     SERVING_OPTIONS = dict(
         host='0.0.0.0',
-        port=5000,
+        port=3200,
         threaded=True
     )
 else:
     SERVING_OPTIONS = dict(
         host='0.0.0.0',
-        port=5000,
+        port=3200,
         threaded=True
     )
